@@ -7,7 +7,13 @@
 
 **VideoForge** is a professional, browser-based video transcoding application that leverages WebAssembly to process media files entirely on the client side. No servers, no uploads, no latency.
 
-[**🔴 Live Demo**](https://video-forge-psi.vercel.app/)
+<div align="center">
+  <h3>✨ Experience the Studio-Grade UI Design</h3>
+  
+  [![Live Demo](https://img.shields.io/badge/�_Launch_App-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://video-forge-psi.vercel.app/)
+  
+  <p><i>Featuring Glassmorphism, Aurora Gradients, and Fluid Animations</i></p>
+</div>
 
 ![Project Screenshot](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop)
 *(Note: Replace the above link with an actual screenshot of your application)*
