@@ -60,7 +60,3 @@ VideoForge loads the FFmpeg core asynchronously. When you drop a file:
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-*Protected by Antigravity Systems © 2026*
