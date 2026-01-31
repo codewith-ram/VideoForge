@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  /* Apple System Colors (Dark Mode focused for "Pro" app feel) */
+  --color-bg-app: #000000;
+  --color-bg-base: #1c1c1e;
+  --color-bg-elevated: #2c2c2e;
+  --color-bg-modal: #3a3a3c;
+
+  /* System Grays */
+  --color-system-gray: #8e8e93;
+  --color-system-gray2: #636366;
+  --color-system-gray3: #48484a;
+  --color-system-gray4: #3a3a3c;
+  --color-system-gray5: #2c2c2e;
+  --color-system-gray6: #1c1c1e;
+
+  /* Text Colors */
+  --color-label-primary: #ffffff;
+  --color-label-secondary: rgba(235, 235, 245, 0.6);
+  --color-label-tertiary: rgba(235, 235, 245, 0.3);
+  --color-label-quaternary: rgba(235, 235, 245, 0.18);
+
+  /* Accents */
+  --color-apple-blue: #0a84ff;
+  --color-apple-blue-hover: #0077ed;
+  --color-apple-indigo: #5e5ce6;
+  --color-apple-purple: #bf5af2;
+  --color-apple-pink: #ff375f;
+  --color-apple-red: #ff453a;
+  --color-apple-orange: #ff9f0a;
+  --color-apple-yellow: #ffd60a;
+  --color-apple-green: #32d74b;
+  --color-apple-teal: #64d2ff;
+
+  /* Semantic Map */
+  --color-primary: var(--color-apple-blue);
+  --color-primary-hover: var(--color-apple-blue-hover);
+  --color-success: var(--color-apple-green);
+  --color-warning: var(--color-apple-orange);
+  --color-danger: var(--color-apple-red);
+
+  /* Animations */
+  --animate-scale-in: scale-in 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes aurora-move {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes glow-pulse {
+    0% {
+      box-shadow: 0 0 5px rgba(10, 132, 255, 0.2);
+    }
+
+    50% {
+      box-shadow: 0 0 20px rgba(10, 132, 255, 0.6);
+    }
+
+    100% {
+      box-shadow: 0 0 5px rgba(10, 132, 255, 0.2);
+    }
+  }
+}
+
+/* 
+   APPLE UI MATERIALS (Glassmorphism) 
+   Mimics the UIVisualEffectView from iOS/macOS
+*/
+
+@utility animate-aurora {
+  background-size: 200% 200%;
+  animation: aurora-move 15s ease infinite;
+}
+
+@utility animate-glow {
+  animation: glow-pulse 3s infinite;
+}
+
+@utility material-thin {
+  @apply bg-white/5 backdrop-blur-md border border-white/5 shadow-sm;
+}
+
+@utility material-regular {
+  @apply bg-[#1c1c1e]/70 backdrop-blur-xl border border-white/10 shadow-lg;
+}
+
+@utility material-thick {
+  @apply bg-[#2c2c2e]/80 backdrop-blur-2xl border border-white/10 shadow-xl;
+}
+
+/* 
+   COMPONENT UTILITIES 
+   Reusable Apple-style component classes
+*/
+
+@utility btn-primary {
+  @apply bg-primary hover:bg-primary-hover text-white font-medium px-4 py-2 rounded-full transition-all duration-200 active:scale-95 shadow-md shadow-blue-900/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+}
+
+@utility btn-secondary {
+  @apply bg-white/10 hover:bg-white/20 text-label-primary font-medium px-4 py-2 rounded-full transition-all duration-200 active:scale-95 backdrop-blur-sm border border-white/5;
+}
+
+@utility btn-glass {
+  @apply bg-white/5 hover:bg-white/10 text-label-primary font-medium px-6 py-3 rounded-2xl transition-all duration-300 border border-white/10 backdrop-blur-md shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98];
+}
+
+@utility card {
+  @apply rounded-3xl bg-bg-elevated border border-white/5 shadow-2xl overflow-hidden;
+}
+
+@utility input-field {
+  @apply bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-label-primary placeholder:text-label-tertiary focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200;
+}
+
+/* Typography Overrides for Apple Feel */
+body {
+  @apply bg-bg-app text-label-primary antialiased font-sans selection:bg-primary/30;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+/* Scrollbar refinement */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
